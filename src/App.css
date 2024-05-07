@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: blanchedalmond;
 }
 
 .logo {
@@ -16,6 +17,55 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.head,h1{
+
+
+  color:red;
+  font-size: 30px;
+}
+.border{
+
+  width:100px;
+  
+  border: 2px solid black;
+  margin-left:180px;
+  margin-top: -50px;
+}
+
+.link{
+
+  color:black;
+  font-size: 26px;
+  text-align: center;
+}
+
+ul{
+
+
+  list-style-type: none;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  grid-column-gap:20px;
+  grid-row-gap:18px;
+  
+}
+
+li p{
+
+
+  font-size: 22px;
+  font-family:Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+.wrapper{
+
+  background-color: azure;
+  border: 2px solid black;
+  padding:12px 10px;
 }
 
 @keyframes logo-spin {
@@ -39,4 +89,37 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    ul{
+
+
+      display:grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      justify-content: space-between;
+      margin-left:-60px;
+    }
+
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    ul{
+
+
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      justify-content: space-between;
+    }
+
 }
