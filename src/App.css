@@ -68,6 +68,25 @@ li p{
   padding:12px 10px;
 }
 
+.container{
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  grid-column-gap:20px;
+}
+
+.content{
+
+  margin-top: 100px;
+}
+
+.link-to{
+
+  color:black;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -123,3 +142,38 @@ li p{
     }
 
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .container{
+
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      justify-content: space-between;
+    }
+    .content{
+
+      margin-top: -20px;
+    }
+
+
+  }
+
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .container{
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      justify-content: space-between;
+
+
+    }
+  }
