@@ -1,20 +1,30 @@
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import getArticleById from "../api";
+import { Link } from "react-router-dom";
+import Comments from "./components/Comments";
 
 
 function SingleArticle(){
 
     const[article,setArticle]=useState({});
+    const [isLoading, setIsLoading] = useState(true);
     const{article_id}=useParams()
 
 useEffect(()=>{
+setIsLoading(true)
 getArticleById(article_id).then((data)=>{
 setArticle(data)
 
+
 },[article_id])
+setIsLoading(false)
 
 })
+
+if (isLoading) {
+    return <p>Loading...</p>;
+  }
 return(
 <>
     <div className="container">
@@ -39,6 +49,11 @@ return(
 
        </div>
     </div>
+
+    <Link to={`/articles/${article_id}/comments`}>
+        <button className="btn">Click to see comments</button>
+
+    </Link>
     
     </>
 )
