@@ -30,7 +30,9 @@ return(
 
         return(
     <li className="wrapper">
+        <Link to={`/articles/${article.article_id}`} className="link-to">
     <h2>{article.title}</h2>
+    </Link>
     <img
     src={article.article_img_url}
     alt={article.title}

@@ -11,7 +11,7 @@ return(
    
     <nav>
     <Link className="link" to="/articles">
-          Home
+          Articles
         </Link>
     </nav>
     {/* <div className="border"></div> */}
