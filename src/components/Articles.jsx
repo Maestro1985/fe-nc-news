@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Comments from "./Comments";
+
 function Articles(){
 
 const[articleData, setArticleData]=useState([]);
+const [isLoading, setIsLoading] = useState(true);
 
 
 
 useEffect(()=>{
+    setIsLoading(true)
 
 fetch('https://nc-backend-project.onrender.com/api/articles').then((response) => {
     if (!response.ok) {
@@ -18,8 +22,14 @@ fetch('https://nc-backend-project.onrender.com/api/articles').then((response) =>
   .then((data) => {
 
     setArticleData(data.articles)
+    
 })
-})
+setIsLoading(false)
+}
+)
+if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
 return(
 
