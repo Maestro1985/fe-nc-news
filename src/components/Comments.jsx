@@ -1,5 +1,7 @@
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
+import PostComment from "./PostComment";
+
 
 function Comments(){
 
@@ -46,9 +48,16 @@ return(
 
     </li>
     )
+    
     })}
+   
 </ul>
+
+<PostComment/>
+
 </>
+
+
 )
 
 
