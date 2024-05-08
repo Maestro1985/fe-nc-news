@@ -16,7 +16,7 @@ return response.json()
 })
 .then((data)=>{
 
-    console.log(data)
+    
     setComments(data.comments)
     setIsLoading(false)
 })
