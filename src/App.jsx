@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Articles from "./components/Articles";
 import SingleArticle from "./SingleArticle";
 import Comments from "./components/Comments";
+import PostComment from "./components/PostComment";
 
 function App() {
  
@@ -16,6 +17,7 @@ function App() {
   <Route path="/articles" element={<Articles />} />
   <Route path='/articles/:article_id' element={<SingleArticle/>}/>
   <Route path='/articles/:article_id/comments' element={<Comments/>}/>
+  <Route path='/articles/:article_id/comments' element={<PostComment/>}/>
   </Routes>
   
     </div>

@@ -144,7 +144,37 @@ li p{
   color: #888;
 }
 
+.form-div h1{
 
+  font-size: 26px;
+
+}
+
+.post-comment{
+
+  display:flex;
+  flex-direction: column;
+  
+  width:600px;
+  padding:16px;
+  margin-left:230px;
+}
+
+input{
+
+  padding:19px 18px;
+  
+  border: 1.4px solid black;
+  margin-bottom: 18px;
+  margin-top: 15px;
+  
+
+}
+.bt{
+
+  background-color: azure;
+  width:100px;
+}
 @media only screen and (min-width: 320px) and (max-width: 510px) {
    
 
@@ -206,6 +236,7 @@ li p{
 
 
     }
+    
   }
 
   @media only screen 
@@ -217,6 +248,16 @@ display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: auto;
 justify-content: space-between;
+
+    }
+    .wrap{
+
+      padding: 0;
+      margin:0 auto;
+    }
+    .post-comment{
+
+    margin-left:-20px;
     }
   }
 
@@ -230,5 +271,11 @@ display: grid;
 grid-template-columns: 1fr 1fr;
 grid-template-rows: auto;
 justify-content: space-between;
+    }
+    .wrap{
+
+      padding: 0;
+      margin:0 auto;
+      
     }
   }
