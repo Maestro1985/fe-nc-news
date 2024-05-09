@@ -90,3 +90,17 @@ return response.data.topics
 })
 
     }
+
+// export function getTopics(){
+
+//     return axios.get(`https://nc-backend-project.onrender.com/api/topics`).then((response)=>{
+
+
+//     return response.data.topics
+//     })
+//     .catch((error)=>{
+
+//         throw error;
+//     })
+
+// } 

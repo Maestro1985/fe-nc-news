@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, } from "react-router-dom";
 import './App.css'
 import Header from "./components/Header";
 import Articles from "./components/Articles";
 import SingleArticle from "./SingleArticle";
 import Comments from "./components/Comments";
-import PostComment from "./components/PostComment";
+
 
 function App() {
  

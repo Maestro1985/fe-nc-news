@@ -2,26 +2,53 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Comments from "./Comments";
 import { getArticles } from "../../api";
+import TopicDropDown from "./TopicDropDown";
+import axios from "axios";
+
 
 function Articles(){
 
+  
 const[articleData, setArticleData]=useState([]);
+const [selectedTopic, setSelectedTopic] = useState('');
 const [isLoading, setIsLoading] = useState(true);
-
-
-
-useEffect(()=>{
+useEffect(() => {
     setIsLoading(true)
+    
+    let apiUrl = 'https://nc-backend-project.onrender.com/api/articles';
+    if (selectedTopic) {
+        apiUrl += `?topic=${selectedTopic}`;
+      }
+            
+    axios
+      .get(apiUrl)
+      .then((response) => {
+      
+        const articleData = response.data.articles;
+        
+        setArticleData(articleData);
+        setIsLoading(false)
+      
+      })
+      .catch((err)=>{
+        throw err
+      
+      })
+  },[selectedTopic]);
 
-    getArticles().then((data) => {
-        console.log(data)
-    setArticleData(data)
-    setIsLoading(false)
+
+// useEffect(()=>{
+//     setIsLoading(true)
+
+//     getArticles().then((data) => {
+//         console.log(data)
+//     setArticleData(data)
+//     setIsLoading(false)
   
     
-});
+// });
 
-},[])
+// },[])
 if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -29,8 +56,10 @@ if (isLoading) {
 return(
 
      <>
+     <TopicDropDown onChange={setSelectedTopic}/>
+     <h2>Here are a list of all {selectedTopic} articles</h2>
     <ul>
-
+    
     {articleData.map((article)=>{
 
         return(
