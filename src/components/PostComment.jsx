@@ -7,6 +7,7 @@
     const [author, setAuthor] = useState("");
     const [body, setBody] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const[error, setError]=useState(false)
   
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -17,13 +18,17 @@
             setAuthor('')
         })
         .catch((err)=>{
-
-            console.log(err)
+            setError(err);
+            
         })
 
        
     
-     };
+     }
+     if(error){
+
+        return <p>There has been an error</p>
+     }
      
   
     return (

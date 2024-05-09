@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Comments from "./Comments";
+import { getArticles } from "../../api";
 
 function Articles(){
 
@@ -12,21 +13,15 @@ const [isLoading, setIsLoading] = useState(true);
 useEffect(()=>{
     setIsLoading(true)
 
-fetch('https://nc-backend-project.onrender.com/api/articles').then((response) => {
-    if (!response.ok) {
-      return Promise.reject();
-    }
+    getArticles().then((data) => {
+        console.log(data)
+    setArticleData(data)
+    setIsLoading(false)
+  
     
-    return response.json();
-  })
-  .then((data) => {
+});
 
-    setArticleData(data.articles)
-    
-})
-setIsLoading(false)
-}
-)
+},[])
 if (isLoading) {
     return <p>Loading...</p>;
   }
