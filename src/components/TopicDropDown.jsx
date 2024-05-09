@@ -1,46 +1,69 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { getTopics } from "../../api"
-import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
-function TopicDropDown(){
+
+
+
+
+
+
+function TopicDropDown({onChange}){
 
 const [topicData, setTopicData]=useState([])
+const navigate=useNavigate()
+
 
 useEffect(() => {
-    axios
-      .get(`https://nc-marketplace-sem-1.onrender.com/api/topics`)
-      .then((response) => {
-        const topicData = response.data.topics;
-        console.log(topicData)
-        
-        setTopicData(topicData);
-      });
+   
+    getTopics().then((data)=>{
+
+        setTopicData(data)
+
+    })
+    
+      
+    
   }, []);
+  
 
   const handleSelectChange = (event) => {
-    onChange(event.target.value);
-  };
+    const selectedTopic=event.target.value;
+    onChange(selectedTopic);
+    navigate(`?topic=${selectedTopic}`)
+
+};
+
 
   return(
-<>
-    <label for="Topics">Choose a topic:</label>
-
-<select name="topics" id="topics" onChange={handleSelectChange}>
+<select name='topics' id='topics' onChange={handleSelectChange}>
+<option value='select topic'>
+            Select topic
+            </option>
 {topicData.map((topic) => {
+    
         return (
-          <option value={topic.slug}>
+           <> 
+           
+           <option value={topic.slug}>
             {topic.slug}
           </option>
+          
+          </>
           
         );
       })}
 
 </select>
-</>
+
+
   )
+  
 
 
 }
+
+
 
 
 

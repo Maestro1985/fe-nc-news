@@ -159,7 +159,13 @@ li p{
   padding:16px;
   margin-left:230px;
 }
+select{
 
+  padding:14px 16px;
+  width:200px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
 input{
 
   padding:19px 18px;
